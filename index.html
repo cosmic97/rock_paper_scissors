@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+<script>
+function computerPlay() {
+    let choices = ['rock','paper','scissors'];
+    return choices[Math.floor(Math.random() * 3)]
+}
+function playRound(playerSelction, computerSelection){
+    if(computerSelection == 'PAPER' && playerSelction == "ROCK" || computerSelection == 'ROCK' && playerSelction == 'SCISSORS' || computerSelection == 'SCISSORS' && playerSelction == 'PAPER'){
+        return console.log("You Lose!! " + computerSelection + " Beats " + playerSelction)
+        return 'c'
+    }
+    else if(computerSelection == playerSelction){
+        return console.log("Draw")
+        return 'd'
+    }
+    else{
+        return console.log("You Win!! " + playerSelction + " Beats " + computerSelection)
+        return 'p'
+    }
+}
+function game(){
+    let i=1,c=0,p=0,winner=''
+    let playerSelction = "null"
+    while(i<5){
+        playerSelction = prompt("Rock/Paper/Scissors")
+        winner = playRound(playerSelction.toUpperCase(),computerPlay().toUpperCase())
+        if(winner=='c'){
+            c++;
+        }
+        if(winner=='p'){
+            p++;
+        }
+        i++
+    }
+    if(c>p){
+        console.log("Computer wins!!")
+    }
+    if(c==p){
+        console.log("Draw!!")
+    }
+    else{
+        console.log("Player wins!!")
+    }
+}
+game();
+// const playerSelection = 'rock';
+// const computerSelection = computerPlay();
+// console.log(playRound(playerSelection, computerSelection)); 
+
+</script>
+</body>
+</html>
